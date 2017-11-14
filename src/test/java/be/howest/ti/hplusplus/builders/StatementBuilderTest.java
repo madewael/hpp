@@ -26,6 +26,11 @@ public class StatementBuilderTest implements IStatementTest {
     }
 
     @Test @Override
+    public void testWhile() {
+        build(WHILE,WhileStmt.class);
+    }
+
+    @Test @Override
     public void testFor(){
         build(FOR,ForStmt.class);
     }
