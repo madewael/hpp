@@ -93,6 +93,15 @@ public class StatementEvalTest implements IStatementTest {
     }
 
     @Test @Override
+    public void testWhile() {
+        HppLocalScope scope = scopeWithFooAndBar;
+        scope.add("x", new HppInt(5));
+        eval(WHILE,scope);
+
+        assertEquals(5,fooInvocationCount.get());
+    }
+
+    @Test @Override
     public void testFor(){
         HppLocalScope scope = scopeWithFooAndBar;
         HppSequence seq = new HppSequence(HppType.INT);

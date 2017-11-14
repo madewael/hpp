@@ -1,4 +1,4 @@
-// Generated from /Users/madewael/Desktop/currentProgramming projects/hpp/src/main/antlr4/Hplusplus.g4 by ANTLR 4.7
+// Generated from D:/GitHub/hpp/src/main/antlr4\Hplusplus.g4 by ANTLR 4.7
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;

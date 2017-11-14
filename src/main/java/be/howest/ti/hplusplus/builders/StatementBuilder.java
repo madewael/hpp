@@ -91,4 +91,12 @@ public class StatementBuilder extends HplusplusBaseVisitor<Statement> {
         List<Expression> vals = ctx.expr().stream().map( expr->expr.accept(exprBuilder)).collect(Collectors.toList());
         return new PrintStmt(vals);
     }
+
+    @Override
+    public Statement visitWhileStmt(HplusplusParser.WhileStmtContext ctx) {
+        Expression cond = ctx.expr().accept(new ExpressionBuilder());
+        Statement body = ctx.stmt().accept(this);
+
+        return new WhileStmt(cond, body);
+    }
 }

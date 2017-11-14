@@ -1,6 +1,8 @@
 package be.howest.ti.hplusplus.types;
 
 import be.howest.ti.hplusplus.exceptions.execution.KeyNotPresent;
+import be.howest.ti.hplusplus.values.HppBool;
+import be.howest.ti.hplusplus.values.HppInt;
 import be.howest.ti.hplusplus.values.HppSequence;
 import be.howest.ti.hplusplus.values.HppValue;
 
@@ -8,12 +10,22 @@ public abstract class HppType {
 
 
 
-    public static final HppType INT = new HppType("INT"){ };
+    public static final HppType INT = new HppType("INT"){
+        @Override
+        public HppValue getDefaultValue() {
+            return new HppInt(0);
+        }
+    };
     public static final HppType STR = new HppType("STR"){};
-    public static final HppType BOOL = new HppType("BOOL"){};
+    public static final HppType BOOL = new HppType("BOOL"){
+        public HppValue getDefaultValue() {
+            return HppBool.NO;
+        }
+    };
     public static final HppType makeSequenceType(HppType base){
         return  new HppType("SEQ of " + base.getName()){
 
+            @Override
             public HppValue getDefaultValue() {
                 return new HppSequence(base);
             }
