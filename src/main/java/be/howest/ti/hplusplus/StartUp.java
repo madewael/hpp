@@ -16,7 +16,7 @@ public class StartUp {
     public static void main(String[] args) throws IOException {
 
         HplusplusParser.ProgContext syntaxTree = HppParser.parse(new File
-                ("src/main/resources/example-programs/p3.hpp"));
+                ("src/main/resources/example-programs/p4.hpp"));
 
         HppProgram p = syntaxTree.accept(new ProgramBuilder());
 

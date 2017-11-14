@@ -41,12 +41,15 @@ public class HppProgram {
     public HppType getType(String name) {
         try {
             return HppType.getTypeByName(name);
-        } catch( KeyNotPresent ex){
-            if ( classes.containsKey(name) ){
+        } catch( KeyNotPresent ex) {
+            if (classes.containsKey(name)) {
                 return classes.get(name);
-            } else if (name.endsWith("s")){
-                String baseName = name.substring(0, name.length()-1);
-                return HppType.makeSequenceType( getType(baseName) );
+            } else if (name.endsWith("s")) {
+                String baseName = name.substring(0, name.length() - 1);
+                return HppType.makeSequenceType(getType(baseName));
+            } else if (name.split(" to ").length == 2) {
+                String[] names = name.split(" to ");
+                return HppType.makeMapType(getType(names[0]), getType(names[1]));
             } else {
                 throw new KeyNotPresent(name + " is not a known type");
             }

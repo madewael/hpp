@@ -43,6 +43,4 @@ public abstract class HppValue extends RuntimeException {
             }
         };
     }
-
-
 }

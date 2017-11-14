@@ -2,8 +2,8 @@ grammar Hplusplus;
 prog  : classDef* expr;
 
 
-name :ID;
-type : ID;
+name : ID;
+type : ID | ID ' to ' ID;
 
 classDef : '@' name OPEN_BLOCK memberDefs CLOSE_BLOCK;
 
@@ -93,7 +93,7 @@ BOOL : 'yes' | 'no';
 
 NUMBER : [0-9]+;
 
-ID : [a-zA-Z]+ ;             // match letters as identifiers
+ID : [a-zA-Z]+;             // match letters as identifiers
 
 
 

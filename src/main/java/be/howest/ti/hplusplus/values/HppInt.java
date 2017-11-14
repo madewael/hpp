@@ -2,6 +2,8 @@ package be.howest.ti.hplusplus.values;
 
 import be.howest.ti.hplusplus.types.HppType;
 
+import java.util.Objects;
+
 public class HppInt extends HppValue {
 
     private final int n;
@@ -21,6 +23,13 @@ public class HppInt extends HppValue {
         return String.format("HppInt(%d)",n);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj.getClass() == this.getClass() && getIntValue() == ((HppInt) obj).getIntValue();
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(n);
+    }
 }

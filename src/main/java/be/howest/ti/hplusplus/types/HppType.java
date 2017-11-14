@@ -1,6 +1,7 @@
 package be.howest.ti.hplusplus.types;
 
 import be.howest.ti.hplusplus.exceptions.execution.KeyNotPresent;
+import be.howest.ti.hplusplus.values.HppMap;
 import be.howest.ti.hplusplus.values.HppSequence;
 import be.howest.ti.hplusplus.values.HppValue;
 
@@ -18,6 +19,12 @@ public abstract class HppType {
                 return new HppSequence(base);
             }
 
+        };
+    }
+
+    public static final HppType makeMapType(HppType key, HppType value) {
+        return new HppType("MAP of " + key.getName() + " to " + value.getName()) {
+            public HppValue getDefaultValue() { return new HppMap(key, value); }
         };
     }
 
