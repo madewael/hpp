@@ -1,7 +1,6 @@
 grammar Hplusplus;
 prog  : classDef* expr;
 
-
 name :ID;
 type : ID;
 
@@ -30,6 +29,7 @@ stmt
 | varDefStmt
 | ifStmt
 | forStmt
+| whileStmt
 | returnStmt
 | blockStmt
 | assignStmt
@@ -40,6 +40,7 @@ stmt
 varDefStmt : varDef END;
 exprStmt   : expr END;
 ifStmt     : 'if' '(' expr ')' stmt ('else' stmt)?;
+whileStmt  : 'while' '(' expr ')' stmt;
 forStmt    : 'for' '(' expr ')' stmt;
 returnStmt : RETURN expr END;
 blockStmt  : OPEN_BLOCK stmt* CLOSE_BLOCK;

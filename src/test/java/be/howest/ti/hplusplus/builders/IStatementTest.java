@@ -14,7 +14,7 @@ public interface IStatementTest {
     String ASSIGN = "x << 30.";
     String RET = ">> 1.";
     String VAR_DEF = "x:int.";
-    String OBSERVE = "x.onChange ~> p.age";
+    String OBSERVE = "onChange ~> age of p.";
 
     void testExprStmt();
     void testIf();

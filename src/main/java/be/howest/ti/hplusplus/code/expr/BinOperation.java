@@ -29,8 +29,8 @@ public class BinOperation extends Expression {
             case "-": return new HppInt( l.getIntValue()-r.getIntValue() );
             case "*": return new HppInt( l.getIntValue()*r.getIntValue() );
             case "/": return new HppInt( l.getIntValue()/r.getIntValue() );
-
             case "<": return (l.getIntValue()<r.getIntValue())? HppBool.YES:HppBool.NO;
+            case ">": return (l.getIntValue()>r.getIntValue())? HppBool.YES:HppBool.NO;
 
             default: throw new HppExecutionException("Unsupported Operation:" + op);
         }
@@ -51,6 +51,7 @@ public class BinOperation extends Expression {
             case "-":
             case "*":
             case "/":
+            case ">":
             case "<": el = HppType.INT; er = HppType.INT; ex = HppType.INT;break;
 
             case "and":
